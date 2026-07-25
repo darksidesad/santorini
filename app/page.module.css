@@ -315,6 +315,14 @@
     height: 68dvh;
   }
 
+  /* La imagen principal llena todo el hero (se ve más grande).
+     Cambia object-position para elegir qué parte queda visible:
+     center | top | bottom | left | right | "50% 30%"... */
+  .image {
+    object-fit: cover;
+    object-position: center;
+  }
+
   .overlay {
     top: var(--ov-top-m);
     left: var(--ov-left-m);
