@@ -1,0 +1,300 @@
+/* ===== NAVBAR ===== */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.1rem 1rem;
+}
+
+.navList a {
+  color: var(--blanco);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.navList a:hover {
+  color: var(--oro-claro);
+  border-color: var(--oro);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* object-fit: contain muestra la imagen completa sin recortarla,
+   centrada y adaptada a cualquier pantalla (incluido móvil). */
+.image {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Cada recorte se posiciona por separado. top/left/width vienen del inline
+   style en page.js. height: auto conserva la proporción de cada imagen. */
+.overlay {
+  position: absolute;
+  top: var(--ov-top);
+  left: var(--ov-left);
+  width: var(--ov-width);
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  cursor: pointer;
+}
+
+.overlayImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 14px var(--oro-claro))
+    drop-shadow(0 0 4px var(--oro));
+  z-index: 5;
+}
+
+/* ===== SERVICIOS ===== */
+.servicios {
+  background-color: transparent;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.tituloSeccion {
+  color: var(--blanco);
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.tituloSeccion::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--oro);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.subtitulo {
+  display: block;
+  color: var(--blanco);
+  opacity: 0.85;
+  margin-top: 0.8rem;
+  margin-bottom: 3rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  flex: 1 1 280px;
+  max-width: 340px;
+  background-color: var(--blanco);
+  border: 1px solid #e6eef5;
+  border-top: 4px solid var(--oro);
+  border-radius: 14px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 8px 24px rgba(27, 92, 138, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(27, 92, 138, 0.18);
+}
+
+.duracion {
+  font-size: 0.8rem;
+  color: var(--azul);
+  background-color: #eaf3fa;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cardTitulo {
+  color: var(--azul-oscuro);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.cardDesc {
+  color: var(--texto);
+  opacity: 0.75;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--oro);
+  margin-bottom: 1.4rem;
+}
+
+.boton {
+  background-color: var(--azul);
+  color: var(--blanco);
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.boton:hover {
+  background-color: var(--oro);
+  transform: scale(1.05);
+}
+
+/* ===== UBICACIÓN / MAPA ===== */
+.ubicacion {
+  padding: 4rem 1.5rem 5rem;
+  text-align: center;
+}
+
+.mapaWrapper {
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--oro);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.mapa {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: rgba(15, 52, 79, 0.45);
+  color: var(--blanco);
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.5);
+}
+
+.footerContenido {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footerMarca {
+  color: var(--oro-claro);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.footerCopy {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ===== RESPONSIVE ===== */
+/* A medida que la pantalla se reduce, el top de los recortes aumenta
+   (se desplazan hacia abajo) sumando un desfase al valor base. */
+@media (max-width: 1024px) {
+  .overlay {
+    top: calc(var(--ov-top) + 5%);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Sección de imagen más baja y recortes un poco más grandes (tablet) */
+  .hero {
+    height: 78dvh;
+  }
+
+  .overlay {
+    top: calc(var(--ov-top) + 8%);
+    width: calc(var(--ov-width) * 1.4);
+  }
+}
+
+@media (max-width: 600px) {
+  .navList {
+    gap: 1.5rem;
+  }
+
+  .tituloSeccion {
+    font-size: 1.8rem;
+  }
+
+  .servicios {
+    padding: 3.5rem 1rem;
+  }
+
+  /* En móvil: sección más compacta y las imágenes usan sus PROPIAS
+     variables (topM / leftM / widthM) definidas en page.js */
+  .hero {
+    height: 68dvh;
+  }
+
+  .overlay {
+    top: var(--ov-top-m);
+    left: var(--ov-left-m);
+    width: var(--ov-width-m);
+  }
+
+  .mapa {
+    height: 320px;
+  }
+}

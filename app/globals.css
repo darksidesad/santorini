@@ -1,0 +1,40 @@
+:root {
+  --azul: #2b85c2;
+  --azul-oscuro: #1b5c8a;
+  --blanco: #ffffff;
+  --oro: #c9a227;
+  --oro-claro: #e3c565;
+  --texto: #1a2c3a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: var(--texto);
+  min-height: 100dvh;
+  /* Imagen de fondo para toda la web + degradado encima para dar profundidad
+     y mantener el texto legible. Fijo al hacer scroll. */
+  background:
+    linear-gradient(160deg, rgba(58, 154, 214, 0.72) 0%, rgba(43, 133, 194, 0.78) 40%, rgba(27, 92, 138, 0.85) 100%),
+    url("/fondo1.png") center / cover no-repeat;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
