@@ -26,7 +26,7 @@ const overlays = [
     src: "/222222222222222.png",
     href: "/clio",
     top: "30%", left: "45%", width: "13%",
-    topM: "40%", leftM: "40%", widthM: "13%",
+    topM: "40%", leftM: "43%", widthM: "13%",
   },
   {
     src: "/333333333333333333.png",
@@ -105,7 +105,7 @@ export default function Home() {
                 "--logo-top": "6%",
                 "--logo-left": "50%",
                 "--logo-width": "18%",
-                "--logo-top-m": "16%",
+                "--logo-top-m": "14%",
                 "--logo-left-m": "50%",
                 "--logo-width-m": "45%",
               }}
