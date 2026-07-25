@@ -69,6 +69,8 @@
   left: var(--ov-left);
   width: var(--ov-width);
   display: block;
+  /* Delante del logo (z-index 1) */
+  z-index: 2;
   transition: transform 0.35s ease, filter 0.35s ease;
   cursor: pointer;
 }
@@ -88,10 +90,20 @@
   top: var(--logo-top);
   left: var(--logo-left);
   width: var(--logo-width);
-  height: auto;
+  height: 40%;
   transform: translateX(-50%);
-  z-index: 3;
+  /* Detrás de las imágenes de las chicas (que van en z-index 2) */
+  z-index: 1;
   pointer-events: none;
+  /* Degradado suave detrás del logo para que resalte */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    transparent 72%
+  );
+  padding: 1.4rem;
+  border-radius: 50%;
 }
 
 .overlay:hover {

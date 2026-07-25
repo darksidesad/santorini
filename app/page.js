@@ -105,7 +105,7 @@ export default function Home() {
                 "--logo-top": "6%",
                 "--logo-left": "50%",
                 "--logo-width": "18%",
-                "--logo-top-m": "8%",
+                "--logo-top-m": "16%",
                 "--logo-left-m": "50%",
                 "--logo-width-m": "45%",
               }}
