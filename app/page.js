@@ -97,6 +97,9 @@ export default function Home() {
               className={styles.image}
             />
 
+            {/* Logo oculto. Para volver a mostrarlo, quita las marcas de
+                comentario que rodean este bloque. */}
+            {/*
             <img
               src="/logo1.svg"
               alt="Logo Santorini"
@@ -110,6 +113,7 @@ export default function Home() {
                 "--logo-width-m": "45%",
               }}
             />
+            */}
 
             {overlays.map((o) => (
               <Link
