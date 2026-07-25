@@ -26,9 +26,12 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <WhatsAppButton />
+        {/* Se carga desde nuestro propio dominio (/script.js) y Next.js lo
+            reenvía a Umami mediante rewrites en next.config.js. El tracker
+            enviará los datos a /api/send, también reenviado a Umami. */}
         <Script
           defer
-          src="https://umami.luxurycitas.com/script.js"
+          src="/script.js"
           data-website-id="3c272cc7-959b-4806-aac8-0f7c9ddc49e2"
           strategy="afterInteractive"
         />
