@@ -19,20 +19,23 @@ const overlays = [
   {
     src: "/1111111111111.png",
     href: "/aurora",
+    nombre: "Aurora",
     top: "29%", left: "20%", width: "12%",
-    topM: "25%", leftM: "2%", widthM: "34%",
+    topM: "20%", leftM: "0%", widthM: "34%",
   },
   {
     src: "/222222222222222.png",
     href: "/clio",
+    nombre: "Clio",
     top: "30%", left: "45%", width: "13%",
     topM: "20%", leftM: "36%", widthM: "44%",
   },
   {
     src: "/333333333333333333.png",
     href: "/hebe",
+    nombre: "Hebe",
     top: "30%", left: "65%", width: "13%",
-    topM: "30%", leftM: "70%", widthM: "34%",
+    topM: "20%", leftM: "70%", widthM: "34%",
   },
 ];
 
@@ -130,8 +133,14 @@ export default function Home() {
                 }}
               >
                 <img src={o.src} alt="" className={styles.overlayImg} />
+                <span className={styles.etiqueta}>{o.nombre}</span>
               </Link>
             ))}
+
+            <span className={styles.hint}>
+              <span className={styles.hintPulso} />
+              Toca una imagen para ver más
+            </span>
           </div>
         </section>
 

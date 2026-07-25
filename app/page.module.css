@@ -113,6 +113,107 @@
   z-index: 5;
 }
 
+/* Flotación sutil para indicar que las imágenes son interactivas.
+   Se aplica a la imagen (no al enlace) para no chocar con el hover. */
+.overlayImg {
+  animation: flotar 3.4s ease-in-out infinite;
+}
+
+.overlay:nth-of-type(1) .overlayImg {
+  animation-delay: 0s;
+}
+.overlay:nth-of-type(2) .overlayImg {
+  animation-delay: 0.5s;
+}
+.overlay:nth-of-type(3) .overlayImg {
+  animation-delay: 1s;
+}
+
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Etiqueta con el nombre, siempre visible bajo cada imagen */
+.etiqueta {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.85rem;
+  background-color: rgba(15, 52, 79, 0.75);
+  color: var(--blanco);
+  border: 1px solid var(--oro);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.overlay:hover .etiqueta {
+  background-color: var(--oro);
+  color: #1a2c3a;
+}
+
+/* Texto guía en el hero */
+.hint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  background-color: rgba(15, 52, 79, 0.55);
+  border: 1px solid rgba(201, 162, 39, 0.6);
+  border-radius: 30px;
+  color: var(--blanco);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  animation: subeBaja 2.6s ease-in-out infinite;
+}
+
+.hintPulso {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--oro-claro);
+  animation: pulso 1.8s ease-out infinite;
+}
+
+@keyframes pulso {
+  0% {
+    box-shadow: 0 0 0 0 rgba(227, 197, 101, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(227, 197, 101, 0);
+  }
+}
+
+@keyframes subeBaja {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -6px);
+  }
+}
+
 /* ===== SERVICIOS ===== */
 .servicios {
   background-color: transparent;
@@ -337,5 +438,15 @@
 
   .mapa {
     height: 320px;
+  }
+}
+
+
+/* Respeta a quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .overlayImg,
+  .hint,
+  .hintPulso {
+    animation: none;
   }
 }
