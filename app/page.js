@@ -20,19 +20,19 @@ const overlays = [
     src: "/1111111111111.png",
     href: "/aurora",
     top: "29%", left: "20%", width: "12%",
-    topM: "40%", leftM: "15%", widthM: "12%",
+    topM: "40%", leftM: "4%", widthM: "24%",
   },
   {
     src: "/222222222222222.png",
     href: "/clio",
     top: "30%", left: "45%", width: "13%",
-    topM: "40%", leftM: "43%", widthM: "13%",
+    topM: "40%", leftM: "43%", widthM: "24%",
   },
   {
     src: "/333333333333333333.png",
     href: "/hebe",
     top: "30%", left: "65%", width: "13%",
-    topM: "40%", leftM: "66%", widthM: "13%",
+    topM: "40%", leftM: "70%", widthM: "24%",
   },
 ];
 
