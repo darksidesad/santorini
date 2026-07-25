@@ -79,6 +79,21 @@
   height: auto;
 }
 
+/* Logo sobre el hero. "left" es el punto CENTRAL del logo (se centra solo
+   con translateX). Ajusta las variables en page.js:
+     --logo-top / --logo-left / --logo-width           (escritorio)
+     --logo-top-m / --logo-left-m / --logo-width-m      (móvil <=600px) */
+.logo {
+  position: absolute;
+  top: var(--logo-top);
+  left: var(--logo-left);
+  width: var(--logo-width);
+  height: auto;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
 .overlay:hover {
   transform: scale(1.06);
   filter: drop-shadow(0 0 14px var(--oro-claro))
@@ -292,6 +307,12 @@
     top: var(--ov-top-m);
     left: var(--ov-left-m);
     width: var(--ov-width-m);
+  }
+
+  .logo {
+    top: var(--logo-top-m);
+    left: var(--logo-left-m);
+    width: var(--logo-width-m);
   }
 
   .mapa {

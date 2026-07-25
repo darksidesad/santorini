@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Loader from "./components/Loader";
 import styles from "./page.module.css";
 
 // Cada recorte se posiciona de forma independiente sobre el fondo.
@@ -59,9 +60,17 @@ const servicios = [
   },
 ];
 
+const imagenesCarga = [
+  "/fondo1.png",
+  "/logo1.svg",
+  ...overlays.map((o) => o.src),
+];
+
 export default function Home() {
   return (
     <>
+      <Loader images={imagenesCarga} />
+
       <nav className={styles.navbar}>
         <ul className={styles.navList}>
           <li>
@@ -86,6 +95,20 @@ export default function Home() {
               priority
               sizes="100vw"
               className={styles.image}
+            />
+
+            <img
+              src="/logo1.svg"
+              alt="Logo Santorini"
+              className={styles.logo}
+              style={{
+                "--logo-top": "6%",
+                "--logo-left": "50%",
+                "--logo-width": "18%",
+                "--logo-top-m": "8%",
+                "--logo-left-m": "50%",
+                "--logo-width-m": "45%",
+              }}
             />
 
             {overlays.map((o) => (
