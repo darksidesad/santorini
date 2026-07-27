@@ -1,5 +1,4 @@
 import "./globals.css";
-import Script from "next/script";
 import { Montserrat } from "next/font/google";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -26,14 +25,17 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <WhatsAppButton />
-        {/* Se carga desde nuestro propio dominio (/script.js) y Next.js lo
-            reenvía a Umami mediante rewrites en next.config.js. El tracker
-            enviará los datos a /api/send, también reenviado a Umami. */}
-        <Script
+        {/* Umami: etiqueta <script> real en el HTML (NO next/script).
+            El tracker lee sus atributos desde document.currentScript, que es
+            null cuando el script se inyecta dinámicamente; con next/script
+            abortaba sin enviar nada.
+            Se sirve desde nuestro dominio (/script.js) y Next lo reenvía a
+            Umami con los rewrites de next.config.js, para que los
+            bloqueadores de anuncios no lo bloqueen. */}
+        <script
           defer
           src="/script.js"
           data-website-id="3c272cc7-959b-4806-aac8-0f7c9ddc49e2"
-          strategy="afterInteractive"
         />
       </body>
     </html>
