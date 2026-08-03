@@ -306,7 +306,7 @@ function ChicasEditor({ value, onChange, onSave, saving }) {
       </div>
 
       {value.map((c, i) => (
-        <div key={c.slug || i} className={styles.chica}>
+        <div key={i} className={styles.chica}>
           <div className={styles.chicaHead}>
             <input
               className={styles.input}
@@ -398,7 +398,7 @@ function ChicasEditor({ value, onChange, onSave, saving }) {
           <div className={styles.extras}>
             <p className={styles.muted}>Servicios adicionales</p>
             {(c.serviciosExtras || []).map((e, ei) => (
-              <div key={`${e.servicio}-${ei}`} className={styles.row}>
+              <div key={ei} className={styles.row}>
                 <input
                   className={styles.input}
                   value={e.servicio}
