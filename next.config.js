@@ -11,10 +11,6 @@ const nextConfig = {
         source: "/script.js",
         destination: "https://umami.luxurycitas.com/script.js",
       },
-      {
-        source: "/api/send",
-        destination: "https://umami.luxurycitas.com/api/send",
-      },
     ];
   },
 };
