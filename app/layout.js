@@ -79,11 +79,15 @@ export default function RootLayout({ children }) {
             abortaba sin enviar nada.
             Se sirve desde nuestro dominio (/script.js) y Next lo reenvía a
             Umami con los rewrites de next.config.js, para que los
-            bloqueadores de anuncios no lo bloqueen. */}
+            bloqueadores de anuncios no lo bloqueen.
+            Los EVENTOS se envían directo del navegador a umami.luxurycitas.com
+            (data-host-url): si no, Cloudflare de Umami ve la IP del servidor y
+            todo el tráfico sale geolocalizado en Francia. */}
         <script
           defer
           src="/script.js"
           data-website-id="3c272cc7-959b-4806-aac8-0f7c9ddc49e2"
+          data-host-url="https://umami.luxurycitas.com"
         />
       </body>
     </html>
