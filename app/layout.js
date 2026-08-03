@@ -4,6 +4,11 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import { getSite } from "./lib/data";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_PRICE_RANGE } from "./lib/site";
 
+// El botón flotante de WhatsApp y el JSON-LD leen data/site.json (admin).
+// Fuerzo render on-demand para que NINGUNA página sirva un número viejo
+// congelado en un build estático.
+export const dynamic = "force-dynamic";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
