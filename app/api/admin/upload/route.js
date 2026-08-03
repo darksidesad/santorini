@@ -4,7 +4,7 @@ import sharp from "sharp";
 import { NextResponse } from "next/server";
 import { isAdmin } from "../../../lib/auth";
 
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
+const UPLOAD_DIR = path.join(process.cwd(), "data", "uploads");
 const MAX_BYTES = 6 * 1024 * 1024;
 // Tipos explícitamente aceptados. Si el navegador/envío manda un tipo
 // genérico (application/octet-stream o vacío), igual se intenta procesar

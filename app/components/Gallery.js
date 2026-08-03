@@ -63,6 +63,7 @@ export default function Gallery({ title, subtitle, images = [], extras = [] }) {
                   src={src}
                   alt={title}
                   fill
+                  unoptimized
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.foto}
                 />
@@ -112,6 +113,7 @@ export default function Gallery({ title, subtitle, images = [], extras = [] }) {
                 src={images[activa]}
                 alt={`${title} ${activa + 1}`}
                 fill
+                unoptimized
                 sizes="(max-width: 768px) 100vw, 80vw"
                 className={styles.lightboxFoto}
               />

@@ -31,6 +31,7 @@ export default function CatalogoPage() {
                   src={c.img}
                   alt={c.nombre}
                   fill
+                  unoptimized
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.foto}
                 />
