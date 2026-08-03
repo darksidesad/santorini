@@ -309,6 +309,7 @@
 }
 
 .boton {
+  display: inline-block;
   background-color: var(--azul);
   color: var(--blanco);
   border: none;

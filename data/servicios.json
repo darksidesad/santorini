@@ -1,0 +1,23 @@
+[
+  {
+    "id": "masaje-relajante",
+    "nombre": "Masaje Relajante",
+    "descripcion": "Técnica suave de cuerpo completo para liberar tensión y calmar la mente.",
+    "precio": "$45",
+    "duracion": "60 min"
+  },
+  {
+    "id": "masaje-descontracturante",
+    "nombre": "Masaje Descontracturante",
+    "descripcion": "Presión profunda enfocada en nudos musculares y zonas de dolor crónico.",
+    "precio": "$60",
+    "duracion": "75 min"
+  },
+  {
+    "id": "masaje-piedras-calientes",
+    "nombre": "Masaje con Piedras Calientes",
+    "descripcion": "Piedras volcánicas templadas que relajan los músculos y activan la circulación.",
+    "precio": "$75",
+    "duracion": "90 min"
+  }
+]

@@ -1,16 +1,13 @@
 import styles from "./WhatsAppButton.module.css";
-
-// Cambia el número por el tuyo, en formato internacional sin "+" ni espacios.
-// Ejemplo España: 34600111222 · México: 5215512345678
-const NUMERO = "34600000000";
-const MENSAJE = "Hola, me gustaría reservar una cita.";
+import { whatsappUrl } from "../lib/whatsapp";
+import { getSite } from "../lib/data";
 
 export default function WhatsAppButton() {
-  const url = `https://wa.me/${NUMERO}?text=${encodeURIComponent(MENSAJE)}`;
+  const { contacto } = getSite();
 
   return (
     <a
-      href={url}
+      href={whatsappUrl(contacto.whatsapp)}
       className={styles.boton}
       target="_blank"
       rel="noopener noreferrer"

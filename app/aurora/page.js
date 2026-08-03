@@ -1,13 +1,6 @@
-import Gallery from "../components/Gallery";
+import { redirect } from "next/navigation";
 
-export const metadata = { title: "Aurora · Santorini Spa" };
-
-export default function AuroraPage() {
-  return (
-    <Gallery
-      title="Aurora"
-      subtitle="Colección Aurora"
-      images={[]}
-    />
-  );
+// Rutas viejas (/aurora, /clio, /hebe) redirigen a la nueva URL dinámica.
+export default function AuroraRedirect() {
+  redirect("/chicas/aurora");
 }

@@ -1,42 +1,3 @@
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background-color: rgba(15, 52, 79, 0.35);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.4);
-}
-
-.volver,
-.spacer {
-  flex: 1;
-}
-
-.volver {
-  color: var(--blanco);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: color 0.25s ease;
-}
-
-.volver:hover {
-  color: var(--oro-claro);
-}
-
-.marca {
-  flex: 1;
-  text-align: center;
-  color: var(--oro-claro);
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 1rem;
-}
-
 .main {
   min-height: 100dvh;
   padding: 4rem 1.5rem 6rem;
@@ -79,11 +40,17 @@
 }
 
 .item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
   border-radius: 14px;
   overflow: hidden;
   border: 2px solid rgba(201, 162, 39, 0.5);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .item:hover {
@@ -91,10 +58,100 @@
 }
 
 .foto {
-  display: block;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item:hover .foto {
+  transform: scale(1.04);
+}
+
+/* ─── Galería / lightbox ───────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.92);
+}
+
+.lightboxMarco {
+  position: relative;
+  width: min(92vw, 880px);
+  margin: 0;
+}
+
+.lightboxImg {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.lightboxFoto {
+  object-fit: contain;
+}
+
+.lightboxPie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  color: var(--blanco);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.lightboxContador {
+  color: var(--oro-claro);
+  font-weight: 500;
+}
+
+.cerrar {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--blanco);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cerrar:hover {
+  background-color: rgba(220, 53, 69, 0.85);
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.14);
+  color: var(--blanco);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav:hover {
+  background-color: rgba(201, 162, 39, 0.85);
 }
 
 .placeholder {
@@ -103,4 +160,58 @@
   opacity: 0.85;
   font-size: 1.1rem;
   margin-top: 3rem;
+}
+
+.extras {
+  margin-top: 4rem;
+}
+
+.extrasTitulo {
+  color: var(--oro-claro);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.extrasTitulo::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background-color: var(--oro);
+  margin: 0.7rem auto 0;
+  border-radius: 2px;
+}
+
+.extrasLista {
+  list-style: none;
+  max-width: 580px;
+  margin: 1.8rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.extrasItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 12px;
+  padding: 0.85rem 1.3rem;
+}
+
+.extrasNombre {
+  color: var(--blanco);
+  font-weight: 500;
+}
+
+.extrasPrecio {
+  color: var(--oro-claro);
+  font-weight: 700;
+  white-space: nowrap;
 }

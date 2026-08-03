@@ -1,13 +1,6 @@
-import Gallery from "../components/Gallery";
+import { redirect } from "next/navigation";
 
-export const metadata = { title: "Clio · Santorini Spa" };
-
-export default function ClioPage() {
-  return (
-    <Gallery
-      title="Clio"
-      subtitle="Colección Clio"
-      images={[]}
-    />
-  );
+// Rutas viejas (/aurora, /clio, /hebe) redirigen a la nueva URL dinámica.
+export default function ClioRedirect() {
+  redirect("/chicas/clio");
 }

@@ -1,0 +1,390 @@
+/* ===== Base ===== */
+.wrap {
+  min-height: 100dvh;
+  padding: 2rem 1.5rem 5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* ===== Barra superior ===== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.topbarTitle {
+  color: var(--blanco);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.topbarActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.link {
+  color: var(--oro-claro);
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Tarjetas de sección ===== */
+.card {
+  background-color: rgba(15, 52, 79, 0.5);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 16px;
+  padding: 1.4rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(6px);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.cardTitle {
+  color: var(--oro-claro);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ===== Formularios ===== */
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+.input {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: var(--blanco);
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--oro);
+}
+
+.row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Botones ===== */
+.btnPrimary {
+  background-color: var(--azul);
+  color: var(--blanco);
+  border: none;
+  border-radius: 30px;
+  padding: 0.55rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--oro);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btnGhost {
+  background-color: transparent;
+  color: var(--oro-claro);
+  border: 1px solid var(--oro);
+  border-radius: 30px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.btnGhost:hover {
+  background-color: rgba(201, 162, 39, 0.15);
+}
+
+.btnDanger {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(220, 53, 69, 0.25);
+  color: #ffb3ba;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btnDanger:hover {
+  background-color: rgba(220, 53, 69, 0.55);
+}
+
+/* ===== Chicas ===== */
+.chica {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+.chicaHead {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.chicaHead .input {
+  max-width: 320px;
+}
+
+/* Badge disponible / no disponible */
+.badgeOn,
+.badgeOff {
+  border: none;
+  border-radius: 20px;
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.badgeOn {
+  background-color: rgba(40, 167, 69, 0.25);
+  color: #9fe6ae;
+  border: 1px solid rgba(40, 167, 69, 0.7);
+}
+
+.badgeOn:hover {
+  background-color: rgba(40, 167, 69, 0.45);
+}
+
+.badgeOff {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #ffb3ba;
+  border: 1px solid rgba(220, 53, 69, 0.6);
+}
+
+.badgeOff:hover {
+  background-color: rgba(220, 53, 69, 0.4);
+}
+
+.chicaFotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.thumb {
+  position: relative;
+  width: 130px;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.thumbCaption {
+  padding: 0.35rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+}
+
+.thumbBtn {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  text-align: center;
+  background-color: rgba(43, 133, 194, 0.5);
+  color: var(--blanco);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.thumbBtn:hover {
+  background-color: rgba(43, 133, 194, 0.8);
+}
+
+.galeria {
+  flex: 1;
+  min-width: 220px;
+}
+
+.extras {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.thumbSmall {
+  position: relative;
+  width: 76px;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.thumbSmall img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.thumbRemove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(220, 53, 69, 0.85);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.addThumb {
+  width: 76px;
+  height: 101px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px dashed rgba(201, 162, 39, 0.6);
+  color: var(--oro-claro);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.addThumb:hover {
+  background-color: rgba(201, 162, 39, 0.15);
+}
+
+/* ===== Eventos ===== */
+.evento {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 0 0.9rem;
+}
+
+/* ===== Mensajes ===== */
+.ok {
+  background-color: rgba(40, 167, 69, 0.2);
+  border: 1px solid rgba(40, 167, 69, 0.6);
+  color: #b8e6c1;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.error {
+  background-color: rgba(220, 53, 69, 0.2);
+  border: 1px solid rgba(220, 53, 69, 0.6);
+  color: #ffb3ba;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Login ===== */
+.loginWrap {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 360px;
+  background-color: rgba(15, 52, 79, 0.55);
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  backdrop-filter: blur(6px);
+}
+
+.loginTitle {
+  color: var(--oro-claro);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

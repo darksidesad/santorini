@@ -1,75 +1,69 @@
 import Image from "next/image";
 import Link from "next/link";
 import Loader from "./components/Loader";
+import { whatsappUrl } from "./lib/whatsapp";
+import { SITE_NAME } from "./lib/site";
+import { getServicios, getSite } from "./lib/data";
 import styles from "./page.module.css";
 
-// Cada recorte se posiciona de forma independiente sobre el fondo.
-// Hay DOS juegos de valores (todos en %):
+// Los servicios, chicas y textos se editan desde /admin y se guardan
+// en data/. Se renderizan por pedido para que los cambios se vean al instante.
+export const dynamic = "force-dynamic";
+
+// ─────────────────────────────────────────────────────────────
+//  HERO: imágenes fijas (solo las toca el desarrollador, NO /admin).
 //
-//   ESCRITORIO ->  top / left / width
-//   MÓVIL      ->  topM / leftM / widthM   (se usan en pantallas <= 600px)
+//  - nombre : etiqueta que se muestra sobre la imagen
+//  - img    : archivo dentro de public/
+//  - top/left/width    : posición en escritorio (% de la pantalla)
+//  - topM/leftM/widthM : posición en móvil (% de la pantalla)
 //
-//   - left / leftM : distancia desde la izquierda (0% = izq, 100% = der)
-//   - top  / topM  : distancia desde arriba       (0% = arriba, 100% = abajo)
-//   - width/ widthM: ancho de la imagen respecto al ancho de la pantalla
-//
-// Edita los valores "M" para acomodar las imágenes en la vista móvil
-// sin cambiar cómo se ven en escritorio.
-const overlays = [
+//  Al presionar una imagen se va a /catalogo (no a la chica).
+//  El admin no puede borrar ni cambiar estas imágenes.
+// ─────────────────────────────────────────────────────────────
+const HERO = [
   {
-    src: "/1111111111111.png",
-    href: "/aurora",
     nombre: "Aurora",
-    top: "29%", left: "20%", width: "12%",
-    topM: "20%", leftM: "0%", widthM: "34%",
+    img: "/1111111111111.webp",
+    top: "29%",
+    left: "20%",
+    width: "12%",
+    topM: "20%",
+    leftM: "0%",
+    widthM: "34%",
   },
   {
-    src: "/222222222222222.png",
-    href: "/clio",
     nombre: "Clio",
-    top: "30%", left: "45%", width: "13%",
-    topM: "20%", leftM: "36%", widthM: "44%",
+    img: "/222222222222222.webp",
+    top: "30%",
+    left: "45%",
+    width: "13%",
+    topM: "20%",
+    leftM: "36%",
+    widthM: "44%",
   },
   {
-    src: "/333333333333333333.png",
-    href: "/hebe",
     nombre: "Hebe",
-    top: "30%", left: "65%", width: "13%",
-    topM: "20%", leftM: "70%", widthM: "34%",
+    img: "/333333333333333333.webp",
+    top: "30%",
+    left: "65%",
+    width: "13%",
+    topM: "20%",
+    leftM: "70%",
+    widthM: "34%",
   },
-];
-
-const servicios = [
-  {
-    nombre: "Masaje Relajante",
-    descripcion:
-      "Técnica suave de cuerpo completo para liberar tensión y calmar la mente.",
-    precio: "$45",
-    duracion: "60 min",
-  },
-  {
-    nombre: "Masaje Descontracturante",
-    descripcion:
-      "Presión profunda enfocada en nudos musculares y zonas de dolor crónico.",
-    precio: "$60",
-    duracion: "75 min",
-  },
-  {
-    nombre: "Masaje con Piedras Calientes",
-    descripcion:
-      "Piedras volcánicas templadas que relajan los músculos y activan la circulación.",
-    precio: "$75",
-    duracion: "90 min",
-  },
-];
-
-const imagenesCarga = [
-  "/fondo1.png",
-  "/logo1.svg",
-  ...overlays.map((o) => o.src),
 ];
 
 export default function Home() {
+  const servicios = getServicios();
+  const { contacto, textos } = getSite();
+
+  const imagenesCarga = [
+    "/fondo1.webp",
+    "/logo1.svg",
+    ...HERO.map((o) => o.img),
+  ];
+
   return (
     <>
       <Loader images={imagenesCarga} />
@@ -92,7 +86,7 @@ export default function Home() {
         <section id="inicio" className={styles.hero}>
           <div className={styles.imageWrapper}>
             <Image
-              src="/fondo1.png"
+              src="/fondo1.webp"
               alt="Santorini"
               fill
               priority
@@ -100,28 +94,10 @@ export default function Home() {
               className={styles.image}
             />
 
-            {/* Logo oculto. Para volver a mostrarlo, quita las marcas de
-                comentario que rodean este bloque. */}
-            {/*
-            <img
-              src="/logo1.svg"
-              alt="Logo Santorini"
-              className={styles.logo}
-              style={{
-                "--logo-top": "6%",
-                "--logo-left": "50%",
-                "--logo-width": "18%",
-                "--logo-top-m": "14%",
-                "--logo-left-m": "50%",
-                "--logo-width-m": "45%",
-              }}
-            />
-            */}
-
-            {overlays.map((o) => (
+            {HERO.map((o) => (
               <Link
-                key={o.src}
-                href={o.href}
+                key={o.nombre}
+                href="/catalogo"
                 className={styles.overlay}
                 style={{
                   "--ov-top": o.top,
@@ -132,42 +108,55 @@ export default function Home() {
                   "--ov-width-m": o.widthM,
                 }}
               >
-                <img src={o.src} alt="" className={styles.overlayImg} />
+                <Image
+                  src={o.img}
+                  alt=""
+                  width={400}
+                  height={800}
+                  sizes="40vw"
+                  className={styles.overlayImg}
+                />
                 <span className={styles.etiqueta}>{o.nombre}</span>
               </Link>
             ))}
 
             <span className={styles.hint}>
               <span className={styles.hintPulso} />
-              Toca una imagen para ver más
+              {textos.heroHint}
             </span>
           </div>
         </section>
 
         <section id="servicios" className={styles.servicios}>
-          <h2 className={styles.tituloSeccion}>Nuestros Servicios</h2>
-          <span className={styles.subtitulo}>
-            Bienestar y relajación en cada sesión
-          </span>
+          <h2 className={styles.tituloSeccion}>{textos.serviciosTitulo}</h2>
+          <span className={styles.subtitulo}>{textos.serviciosSubtitulo}</span>
 
           <div className={styles.cards}>
             {servicios.map((s) => (
-              <article key={s.nombre} className={styles.card}>
+              <article key={s.id} className={styles.card}>
                 <span className={styles.duracion}>{s.duracion}</span>
                 <h3 className={styles.cardTitulo}>{s.nombre}</h3>
                 <p className={styles.cardDesc}>{s.descripcion}</p>
                 <div className={styles.precio}>{s.precio}</div>
-                <button className={styles.boton}>Reservar</button>
+                <a
+                  href={whatsappUrl(
+                    contacto.whatsapp,
+                    `Hola, me gustaría reservar el ${s.nombre} (${s.precio}).`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.boton}
+                >
+                  Reservar
+                </a>
               </article>
             ))}
           </div>
         </section>
 
         <section id="ubicacion" className={styles.ubicacion}>
-          <h2 className={styles.tituloSeccion}>Dónde Encontrarnos</h2>
-          <span className={styles.subtitulo}>
-            Visítanos y déjate consentir
-          </span>
+          <h2 className={styles.tituloSeccion}>{textos.ubicacionTitulo}</h2>
+          <span className={styles.subtitulo}>{textos.ubicacionSubtitulo}</span>
 
           <div className={styles.mapaWrapper}>
             <iframe
@@ -184,10 +173,12 @@ export default function Home() {
 
       <footer id="contacto" className={styles.footer}>
         <div className={styles.footerContenido}>
-          <h3 className={styles.footerMarca}>Santorini Spa</h3>
-          <p>Av. del Mar 123 · Reservas: (555) 123-4567</p>
+          <h3 className={styles.footerMarca}>{SITE_NAME}</h3>
+          <p>
+            {contacto.direccion} · Reservas: {contacto.telefono}
+          </p>
           <p className={styles.footerCopy}>
-            © {new Date().getFullYear()} Santorini Spa. Todos los derechos
+            © {new Date().getFullYear()} {SITE_NAME}. Todos los derechos
             reservados.
           </p>
         </div>

@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "aurora",
+    "nombre": "Aurora",
+    "disponible": true,
+    "img": "/uploads/aurora-1785634461350.webp",
+    "galeria": [
+      "/uploads/aurora-1785634505341.webp",
+      "/uploads/aurora-1785634508133.webp"
+    ],
+    "serviciosExtras": [
+      {
+        "servicio": "Masaje con aceites esenciales",
+        "precio": "$30"
+      }
+    ]
+  },
+  {
+    "slug": "clio",
+    "nombre": "Clio",
+    "disponible": true,
+    "img": "/222222222222222.webp",
+    "galeria": [
+      "/222222222222222.webp"
+    ],
+    "serviciosExtras": []
+  },
+  {
+    "slug": "hebe",
+    "nombre": "Hebe",
+    "disponible": true,
+    "img": "/333333333333333333.webp",
+    "galeria": [
+      "/333333333333333333.webp"
+    ],
+    "serviciosExtras": []
+  }
+]

@@ -18,20 +18,31 @@ body {
   height: 100%;
 }
 
-body {
-  color: var(--texto);
-  min-height: 100dvh;
-  /* Imagen de fondo para toda la web + degradado encima para dar profundidad
-     y mantener el texto legible. Fijo al hacer scroll. */
-  background:
-    linear-gradient(160deg, rgba(58, 154, 214, 0.72) 0%, rgba(43, 133, 194, 0.78) 40%, rgba(27, 92, 138, 0.85) 100%),
-    url("/fondo1.png") center / cover no-repeat;
-  background-attachment: fixed;
+html {
+  background-color: #1b5c8a;
   scroll-behavior: smooth;
 }
 
-html {
-  scroll-behavior: smooth;
+body {
+  position: relative;
+  z-index: 0;
+  color: var(--texto);
+  min-height: 100dvh;
+}
+
+/* Fondo de toda la web en una capa fija: la imagen + un degradado encima para
+   dar profundidad y mantener el texto legible.
+   Se usa body::before con position: fixed en lugar de background-attachment:
+   fixed, que causa saltos y bajo rendimiento en móviles (sobre todo iOS). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(160deg, rgba(58, 154, 214, 0.72) 0%, rgba(43, 133, 194, 0.78) 40%, rgba(27, 92, 138, 0.85) 100%),
+    url("/fondo1.webp") center / cover no-repeat;
 }
 
 a {

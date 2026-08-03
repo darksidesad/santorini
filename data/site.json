@@ -1,0 +1,18 @@
+{
+  "contacto": {
+    "whatsapp": "123131123",
+    "telefono": "(555) 123-4567",
+    "direccion": "Av. del Mar 123"
+  },
+  "textos": {
+    "heroHint": "Toca una imagen para ver mas",
+    "serviciosTitulo": "Nuestros Servicios",
+    "serviciosSubtitulo": "Bienestar y relajacion",
+    "ubicacionTitulo": "Donde Encontrarnos",
+    "ubicacionSubtitulo": "Visitanos",
+    "catalogoTitulo": "Nuestras Chicas",
+    "catalogoSubtitulo": "Descubre las disponibles",
+    "eventosTitulo": "Proximos Eventos",
+    "eventosSubtitulo": "Vive experiencias"
+  }
+}

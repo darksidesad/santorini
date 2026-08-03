@@ -1,13 +1,6 @@
-import Gallery from "../components/Gallery";
+import { redirect } from "next/navigation";
 
-export const metadata = { title: "Hebe · Santorini Spa" };
-
-export default function HebePage() {
-  return (
-    <Gallery
-      title="Hebe"
-      subtitle="Colección Hebe"
-      images={[]}
-    />
-  );
+// Rutas viejas (/aurora, /clio, /hebe) redirigen a la nueva URL dinámica.
+export default function HebeRedirect() {
+  redirect("/chicas/hebe");
 }
