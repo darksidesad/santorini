@@ -4,7 +4,11 @@ import SubpageNav from "../components/SubpageNav";
 import { getChicas, getSite } from "../lib/data";
 import styles from "./catalogo.module.css";
 
-export const metadata = { title: "Catálogo" };
+export const metadata = {
+  title: "Escorts y Prepagos en Medellín",
+  description:
+    "Conoce a nuestras acompañantes y escorts exclusivas en Santorini Medellín. Prepagos de lujo y masajes premium en el corazón de Medellín. Reserva por WhatsApp.",
+};
 
 // Se leen de data/chicas.json (editable desde /admin).
 export const dynamic = "force-dynamic";

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Loader from "./components/Loader";
 import { whatsappUrl } from "./lib/whatsapp";
-import { SITE_NAME } from "./lib/site";
+import { SITE_NAME, SITE_CITY } from "./lib/site";
 import { getServicios, getSite } from "./lib/data";
 import styles from "./page.module.css";
 
@@ -83,6 +83,10 @@ export default function Home() {
       </nav>
 
       <main>
+        <h1 className={styles.srOnly}>
+          {SITE_NAME} en {SITE_CITY}: Escorts, Prepagos y Masajes de Lujo
+        </h1>
+
         <section id="inicio" className={styles.hero}>
           <div className={styles.imageWrapper}>
             <Image
@@ -160,14 +164,43 @@ export default function Home() {
 
           <div className={styles.mapaWrapper}>
             <iframe
-              title="Ubicación Santorini Spa"
-              src="https://www.google.com/maps?q=Santorini,Greece&output=embed"
+              title="Ubicación Santorini Medellín"
+              src="https://www.google.com/maps?q=El+Poblado,+Medellín,+Colombia&output=embed"
               className={styles.mapa}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
           </div>
+        </section>
+
+        <section className={styles.seo}>
+          <h2>Santorini Medellín: Escorts, Prepagos y Masajes Premium</h2>
+          <p>
+            <Link href="/catalogo">Santorini Medellín</Link> es el spa
+            exclusivo que reúne a las mejores acompañantes y escorts de la
+            ciudad. Aquí encontrarás prepagos de primer nivel, atención
+            discreta y un ambiente de lujo para relajarte en el corazón de
+            Medellín.
+          </p>
+          <h3>Escorts y prepagos en Medellín</h3>
+          <p>
+            Nuestro Catálogo presenta a las acompañantes disponibles en{" "}
+            {SITE_CITY}. Cada una con su propia galería y servicios adicionales,
+            para que elijas la experiencia que prefieras con total confianza y
+            reserva por WhatsApp en minutos.
+          </p>
+          <h3>Masajes y bienestar</h3>
+          <p>
+            Además de acompañantes, ofrecemos masajes relajantes de clase
+            premium. Reserva tu masaje en Santorini Medellín y déjate consentir
+            en un entorno privado y de alta calidad.
+          </p>
+          <p>
+            Si buscas escorts en Medellín, prepagos santorini o{" "}
+            <Link href="/catalogo">acompañantes de lujo</Link>, estás en el
+            lugar indicado. Contáctanos por WhatsApp y reserva hoy.
+          </p>
         </section>
       </main>
 

@@ -2,7 +2,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { getSite } from "./lib/data";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_PRICE_RANGE } from "./lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_PRICE_RANGE, SITE_CITY, SITE_REGION, SITE_POSTAL, SITE_COUNTRY, SITE_GEO } from "./lib/site";
 
 // El botón flotante de WhatsApp y el JSON-LD leen data/site.json (admin).
 // Fuerzo render on-demand para que NINGUNA página sirva un número viejo
@@ -17,21 +17,40 @@ const montserrat = Montserrat({
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: SITE_URL },
   title: {
-    default: SITE_NAME,
-    template: `%s · ${SITE_NAME}`,
+    default: "Santorini Medellín | Escorts, Prepagos y Masajes",
+    template: `%s · Santorini Medellín`,
   },
   description: SITE_DESCRIPTION,
+  keywords: [
+    "escorts medellín",
+    "escort santorini",
+    "prepagos santorini",
+    "santorini medellín",
+    "masajes santorini",
+    "acompañantes medellín",
+    "spa exclusivo medellín",
+  ],
   openGraph: {
     type: "website",
-    url: "/",
-    title: SITE_NAME,
+    url: SITE_URL,
+    title: "Santorini Medellín | Escorts, Prepagos y Masajes",
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
+    locale: "es_CO",
+    images: [
+      {
+        url: "/fondo1.webp",
+        width: 1200,
+        height: 675,
+        alt: "Santorini Medellín",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE_NAME,
+    title: "Santorini Medellín | Escorts, Prepagos y Masajes",
     description: SITE_DESCRIPTION,
   },
 };
@@ -51,7 +70,7 @@ export default function RootLayout({ children }) {
         {children}
         <WhatsAppButton />
 
-        {/* Datos estructurados para Google (negocio local).
+        {/* Datos estructurados para Google (negocio local de Medellín).
             Teléfono y dirección se editan desde /admin → Contacto. */}
         <script
           type="application/ld+json"
@@ -61,14 +80,25 @@ export default function RootLayout({ children }) {
               "@type": "DaySpa",
               name: SITE_NAME,
               url: SITE_URL,
+              image: `${SITE_URL}/fondo1.webp`,
               description: SITE_DESCRIPTION,
               telephone: contacto.telefono,
               priceRange: SITE_PRICE_RANGE,
+              areaServed: SITE_CITY,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: contacto.direccion,
-                addressCountry: "ES",
+                addressLocality: SITE_CITY,
+                addressRegion: SITE_REGION,
+                postalCode: SITE_POSTAL,
+                addressCountry: SITE_COUNTRY,
               },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: SITE_GEO.lat,
+                longitude: SITE_GEO.lng,
+              },
+              openingHours: "Mo-Su 10:00-22:00",
             }),
           }}
         />
